@@ -1,0 +1,28 @@
+{
+  "expo": {
+    "name": "Kitty Shop",
+    "slug": "kitty-shop",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "scheme": "kittyshop",
+    "userInterfaceStyle": "automatic",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "edgeToEdgeEnabled": true,
+      "predictiveBackGestureEnabled": false
+    },
+    "web": {
+      "output": "static"
+    },
+    "plugins": [
+      "expo-router"
+    ],
+    "experiments": {
+      "typedRoutes": true,
+      "reactCompiler": true
+    }
+  }
+}
