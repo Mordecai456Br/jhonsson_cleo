@@ -10,11 +10,11 @@ export function LoginScreen() {
 
   const handleLogin = () => {
     console.log("Mock login attempt with:", email, password);
-    router.replace("/home");
+    router.replace("/(tabs)/home");
   };
 
   const navigateToHome = () => {
-    router.replace("/home");
+    router.replace("/(tabs)/home");
   };
 
   return (
