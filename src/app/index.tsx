@@ -1,8 +1,11 @@
 import React, { useEffect } from "react";
 import { useRouter } from "expo-router";
 import { LoadingScreen } from "../components/LoadingScreen";
+import {SafeAreaView as RNSafeAreaView} from "react-native-safe-area-context";
+import { styled } from "nativewind";
+const SafeAreaView = styled(RNSafeAreaView);
 
-export default function Index() {
+export default function App() {
   const router = useRouter();
 
   useEffect(() => {
@@ -13,5 +16,9 @@ export default function Index() {
     return () => clearTimeout(timer);
   }, [router]);
 
-  return <LoadingScreen />;
+  return (
+      <SafeAreaView className="flex-1">
+        <LoadingScreen />
+    </SafeAreaView>
+    );
 }
