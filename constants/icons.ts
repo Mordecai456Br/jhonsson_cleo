@@ -7,6 +7,7 @@ import houseIcon from "@/assets/icons/houseIcon.png";
 import cartIcon from "@/assets/icons/cartIcon.png";
 import accountIcon from "@/assets/icons/accountIcon.png";
 import searchIcon from "@/assets/icons/searchIcon.png";
+import starIcon from "@/assets/mock/starIcon.png";
 
 export const icons = {
     catFoodIcon,
@@ -17,6 +18,7 @@ export const icons = {
     cartIcon,
     accountIcon,
     searchIcon,
+    starIcon
 
 } as const;
 

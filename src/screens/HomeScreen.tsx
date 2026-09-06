@@ -1,11 +1,13 @@
 
 import * as React from "react";
 import {StyleSheet, View, Text, Image, ScrollView, ImageBackground} from "react-native";
+import ProductCardMainRecommendations from "@/src/components/productCards/ProductCardFeed";
 
 const FeedDeProdutos = () => {
 
     return (
         <View style={styles.feedDeProdutos}>
+            <ProductCardMainRecommendations productCardType={"promo"} title={"title"} imageUrl={require("@/assets/mock/productImages/perdigreeAdulto.jpg")} price={43}></ProductCardMainRecommendations>
             <View style={styles.frameParent}>
                 <View style={[styles.frameChild, styles.frameChildFlexBox]} />
                 <View style={styles.jhonssonCleoParent}>
