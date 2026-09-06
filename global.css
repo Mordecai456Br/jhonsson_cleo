@@ -1,0 +1,17 @@
+@import "tailwindcss/theme.css" layer(theme);
+@import "tailwindcss/preflight.css" layer(base);
+@import "tailwindcss/utilities.css";
+
+@import "nativewind/theme";
+
+@theme{
+
+    --font-inter: inter-regular;
+    --font-inter-extralight: inter-extralight;
+    --font-inter-light: inter-light;
+    --font-inter-medium: inter-medium;
+    --font-inter-semibold: inter-semibold;
+    --font-inter-bold: inter-bold;
+    --font-inter-extrabold: inter-extrabold;]
+
+}

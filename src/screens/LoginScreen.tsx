@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, TextInput, Button } from "react-native";
 import { AuthButton } from "../components/AuthButton";
 import { useRouter } from "expo-router";
+import {SafeAreaView} from "react-native-safe-area-context";
 
 export function LoginScreen() {
   const router = useRouter();
@@ -10,15 +11,15 @@ export function LoginScreen() {
 
   const handleLogin = () => {
     console.log("Mock login attempt with:", email, password);
-    router.replace("/home");
+    router.replace("/(tabs)/home");
   };
 
   const navigateToHome = () => {
-    router.replace("/home");
+    router.replace("/(tabs)/home");
   };
 
   return (
-    <View>
+    <SafeAreaView>
       <Text>Login</Text>
       
       <Text>Email:</Text>
@@ -63,6 +64,6 @@ export function LoginScreen() {
           navigateToHome();
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 }
