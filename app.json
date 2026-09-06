@@ -12,7 +12,8 @@
     },
     "android": {
       "edgeToEdgeEnabled": true,
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": false,
+      "package": "com.anonymous.kittyshop"
     },
     "web": {
       "output": "static"
@@ -23,7 +24,36 @@
       "expo-image",
       "expo-splash-screen",
       "expo-status-bar",
-      "expo-web-browser"
+      "expo-web-browser",
+      [
+        "expo-font",
+        {
+          "fonts": [
+            "./assets/fonts/static/Inter_18pt-Black.ttf",
+            "./assets/fonts/static/Inter_18pt-Black.ttf",
+            "./assets/fonts/static/Inter_18pt-Black.ttf",
+            "./assets/fonts/static/Inter_18pt-Black.ttf",
+            "./assets/fonts/static/Inter_18pt-Black.ttf",
+            "./assets/fonts/static/Inter_18pt-BlackItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-Bold.ttf",
+            "./assets/fonts/static/Inter_18pt-BoldItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-ExtraBold.ttf",
+            "./assets/fonts/static/Inter_18pt-ExtraBoldItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-ExtraLight.ttf",
+            "./assets/fonts/static/Inter_18pt-ExtraLightItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-Italic.ttf",
+            "./assets/fonts/static/Inter_18pt-Light.ttf",
+            "./assets/fonts/static/Inter_18pt-LightItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-Medium.ttf",
+            "./assets/fonts/static/Inter_18pt-MediumItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-Regular.ttf",
+            "./assets/fonts/static/Inter_18pt-SemiBold.ttf",
+            "./assets/fonts/static/Inter_18pt-SemiBoldItalic.ttf",
+            "./assets/fonts/static/Inter_18pt-Thin.ttf",
+            "./assets/fonts/static/Inter_18pt-ThinItalic.ttf"
+          ]
+        }
+      ]
     ],
     "experiments": {
       "typedRoutes": true,

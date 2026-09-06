@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { View, TextInput, Button } from "react-native";
-import { Search } from "lucide-react-native";
 
 export function SearchBar() {
   const [query, setQuery] = useState("");
