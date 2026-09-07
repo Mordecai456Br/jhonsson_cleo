@@ -1,24 +1,7 @@
 import * as React from "react";
 import { Image, ImageSourcePropType, Text, View } from "react-native";
 
-export interface ProductTag {
-    label: string;
-    variant: "default" | "promo" | "custom";
-    // Opcional: cores customizadas caso a tag seja do tipo 'custom'
-    bgColor?: string;
-    textColor?: string;
-}
 
-export interface ProductCardFeedProps {
-    productCardType: "mainFeed" | "promo" | "hits";
-    title: string;
-    imageUrl: ImageSourcePropType;
-    tags?: ProductTag[];
-    soldCount?: number;
-    rating?: number;
-    price: number;
-    discountPercentage?: number;
-}
 
 const ProductCardMainRecommendations = ({
                                             productCardType,
@@ -31,11 +14,11 @@ const ProductCardMainRecommendations = ({
                                             discountPercentage,
                                         }: ProductCardFeedProps) => {
 
-    // Exemplo de formatação de moeda simples
+
     const formattedPrice = `R$ ${price.toFixed(2).replace(".", ",")}`;
 
     return (
-        <View className="w-full flex-1 items-start justify-center gap-2">
+        <View className="w-full h-[268.5px] flex-1 items-start justify-center gap-2">
             {/* Imagem do Produto */}
             <Image
                 className="h-[179.5px] w-[179.5px] rounded-lg"
@@ -44,30 +27,48 @@ const ProductCardMainRecommendations = ({
             />
 
             <View className="w-[179px] items-start">
-                {/* Título com Tags Inline fluindo com o texto */}
-                <Text
-                    className="text-xs font-normal leading-4 text-[#3d3d3d]"
-                    numberOfLines={2}
-                >
-                    {tags.map((tag, index) => {
-                        const isPromo = tag.variant === "promo";
-                        const bgClass = isPromo ? "bg-[#fc3850]" : "bg-[#f5d6ff]";
-                        const textClass = isPromo ? "text-white" : "text-[#730099]";
 
-                        return (
-                            <View
-                                key={index}
-                                className={`mr-1 flex-row items-center justify-center overflow-hidden rounded px-1.5 py-0.5 align-middle ${bgClass}`}
-                            >
-                                <Text className={`text-[10px] font-semibold ${textClass}`}>
-                                    {tag.label}
-                                </Text>
-                            </View>
-                        );
-                    })}
-                    {tags.length > 0 && " "}
-                    {title}
-                </Text>
+
+                {/* Container vertical: tags em cima e título abaixo */}
+                <View className="w-full items-start">
+
+                    {/* Container horizontal: permite múltiplas tags lado a lado */}
+                    <View className="w-full flex-row flex-wrap items-start">
+                        {tags.map((tag, index) => {
+                            const isPromo = tag.variant === "promo";
+
+                            return (
+                                <View
+                                    key={`${tag.label}-${index}`}
+                                    className={`mr-1 mb-0.5 flex-row items-center justify-center rounded px-1.5 py-0.5 ${
+                                        isPromo
+                                            ? "bg-[#fc3850]"
+                                            : "bg-[#f5d6ff]"
+                                    }`}
+                                >
+                                    <Text
+                                        className={`text-[10px] font-semibold ${
+                                            isPromo
+                                                ? "text-white"
+                                                : "text-[#730099]"
+                                        }`}
+                                    >
+                                        {tag.label}
+                                    </Text>
+                                </View>
+                            );
+                        })}
+                    </View>
+
+                    <Text
+                        className="w-full text-xs font-normal leading-4 text-[#3d3d3d]"
+                        numberOfLines={2}
+                        ellipsizeMode="tail"
+                    >
+                        {title}
+                    </Text>
+
+                </View>
 
                 {/* Avaliações e Vendas */}
                 <View className="mt-1 h-[15px] w-full flex-row items-center gap-1">
@@ -85,7 +86,7 @@ const ProductCardMainRecommendations = ({
                         {/* Aqui você pode usar uma biblioteca como react-native-heroicons (StarIcon)
                 Para fins de layout, mantive os blocos como representação das estrelas */}
                         {[...Array(5)].map((_, i) => (
-                            <View key={i} className="h-[9px] w-[9px] rounded-full bg-yellow-400" />
+                            <Image key={i} className="h-[9px] w-[9px]" source={require("@/assets/mock/starIcon.png")} />
                         ))}
                     </View>
 

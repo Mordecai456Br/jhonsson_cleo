@@ -4,10 +4,13 @@ import {StyleSheet, View, Text, Image, ScrollView, ImageBackground} from "react-
 import ProductCardMainRecommendations from "@/src/components/productCards/ProductCardFeed";
 
 const FeedDeProdutos = () => {
+    const tagsArray: ProductTag[] = [
+        { label: "100g", variant: "default" },
+        { label: "Promo", variant: "promo" },
+    ];
 
     return (
         <View style={styles.feedDeProdutos}>
-            <ProductCardMainRecommendations productCardType={"promo"} title={"title"} imageUrl={require("@/assets/mock/productImages/perdigreeAdulto.jpg")} price={43}></ProductCardMainRecommendations>
             <View style={styles.frameParent}>
                 <View style={[styles.frameChild, styles.frameChildFlexBox]} />
                 <View style={styles.jhonssonCleoParent}>
@@ -85,508 +88,46 @@ const FeedDeProdutos = () => {
                 </View>
                 <ScrollView style={[styles.products, styles.feedLayout]} contentContainerStyle={styles.productsContainerContent}>
                     <View style={[styles.productsectionleft, styles.frameGroupSpaceBlock]}>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.raoMidaPedigreeSachCarWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={styles.raoMidaPedigree} numberOfLines={2}>                             Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>130 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>3.9</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={styles.textTypo}>
-                                            <Text style={styles.textLayout}>3,</Text>
-                                            <Text style={styles.rLayout}>60</Text>
-                                        </Text>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-8%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.packsDeRaoMidaPedigreeWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={[styles.packsDeRao, styles.vendidosTypo]} numberOfLines={2}>                                   Packs de Ração Úmida Pedigree para Cães Adultos Sênior 7+ Anos, Sachê Carne ao Molho, 36 Sachês de 100 g</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag4, styles.tagFlexBox]}>
-                                            <Text style={[styles.senior, styles.gTypo]}>Senior</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>21 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>4.7 (9)</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={styles.textTypo}>
-                                            <Text style={styles.textLayout}>106,</Text>
-                                            <Text style={styles.rLayout}>92</Text>
-                                        </Text>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-14%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.raoMidaPedigreeSachCarWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={styles.raoMidaPedigree} numberOfLines={2}>                                  Laser Musket - 100 de dano e 1 round</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>One Shot</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent16, styles.parentLayout]}>
-                                    <View style={[styles.parent, styles.starsFlexBox]}>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>2k+</Text>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>vendido(s)</Text>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                    <View style={[styles.starrating, styles.starsFlexBox]}>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>4.6 (445)</Text>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <View style={styles.rParent}>
-                                            <Text style={[styles.text16, styles.textLayout]}>16.000</Text>
-                                        </View>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-10%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.raoMidaPedigreeSachCarWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={styles.raoMidaPedigree} numberOfLines={2}>                               M4 - 26 rounds 20 damage precisão moderada</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag10, styles.tagFlexBox]}>
-                                            <Text style={[styles.g3, styles.gTypo]}>🔥 Hits</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent16, styles.parentLayout]}>
-                                    <View style={[styles.parent, styles.starsFlexBox]}>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>14k+</Text>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>vendido(s)</Text>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                    <View style={[styles.starrating, styles.starsFlexBox]}>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>4.9 (1129)</Text>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <View style={styles.rParent}>
-                                            <Text style={[styles.text16, styles.textLayout]}>4.300</Text>
-                                        </View>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-8%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.packsDeRaoMidaPedigreeWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={[styles.packsDeRao, styles.vendidosTypo]} numberOfLines={2}>                                   Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>130 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>4.8</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={[styles.text16, styles.textLayout]}>3,60</Text>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-8%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productsectionleftChild} />
+                        <ProductCardMainRecommendations
+                            productCardType="promo"
+                            title="Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g"
+                            imageUrl={require("@/assets/mock/productImages/perdigreeAdulto.jpg")}
+                            tags={[
+                                {
+                                    label: "100 G",
+                                    variant: "default",
+                                },
+                                {
+                                    label: "Promo",
+                                    variant: "promo",
+                                },
+                            ]}
+                            soldCount={130}
+                            rating={3.9}
+                            price={3.60}
+                            discountPercentage={8}
+                        />
                     </View>
                     <View style={[styles.productsectionleft, styles.frameGroupSpaceBlock]}>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.packsDeRaoMidaPedigreeWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={[styles.packsDeRao, styles.vendidosTypo]} numberOfLines={2}>                                   Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag16, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag10, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>🔥 Hits</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>280 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>4.2 (20)</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={styles.textTypo}>
-                                            <Text style={styles.textLayout}>3,</Text>
-                                            <Text style={styles.rLayout}>20</Text>
-                                        </Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.packsDeRaoMidaPedigreeWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={[styles.packsDeRao, styles.vendidosTypo]} numberOfLines={2}>                                   Pack Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos 100 g - 36 unidades</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>90 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>4.9</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={styles.textTypo}>
-                                            <Text style={styles.textLayout}>95,</Text>
-                                            <Text style={styles.rLayout}>42</Text>
-                                        </Text>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-24%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.packsDeRaoMidaPedigreeWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={[styles.packsDeRao, styles.vendidosTypo]} numberOfLines={2}>                                   Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag, styles.tagFlexBox]}>
-                                            <Text style={[styles.g, styles.gTypo]}>100 G</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={styles.frameFlexBox1}>
-                                    <View style={[styles.frameWrapper3, styles.frameSpaceBlock]}>
-                                        <View style={[styles.vendidosParent, styles.parentLayout]}>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>130 vendido(s)</Text>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                            <View style={[styles.stars, styles.starsFlexBox]}>
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                                <Image style={styles.iconLayout} resizeMode="cover" />
-                                            </View>
-                                            <Text style={[styles.vendidos, styles.vendidosTypo]}>4.8</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <Text style={[styles.text16, styles.textLayout]}>3,60</Text>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-8%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.raoMidaPedigreeSachCarWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={styles.raoMidaPedigree} numberOfLines={2}>             Ballist Fist double barrel 10 rounds</Text>
-                                    </View>
-                                    <View style={[styles.tagWrapper, styles.tagPosition]}>
-                                        <View style={[styles.tag25, styles.tagFlexBox]}>
-                                            <Text style={[styles.g3, styles.gTypo]}>Hand</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent16, styles.parentLayout]}>
-                                    <View style={[styles.parent, styles.starsFlexBox]}>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>1.4k+</Text>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>vendido(s)</Text>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                    <View style={[styles.starrating, styles.starsFlexBox]}>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>4.6 (561)</Text>
-                                </View>
-                                <View style={styles.frameFlexBox}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <View style={styles.rParent}>
-                                            <Text style={[styles.text16, styles.textLayout]}>8.500</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
-                        <View style={styles.productcard}>
-                            <Image style={styles.imageIcon} resizeMode="cover" />
-                            <View style={styles.frameParent8}>
-                                <View style={[styles.frameParent9, styles.frameParentCommon]}>
-                                    <View style={[styles.raoMidaPedigreeSachCarWrapper, styles.raoWrapperPosition]}>
-                                        <Text style={styles.raoMidaPedigree} numberOfLines={2}>                              Ak-47 - 32 rounds 18 damage precisão média</Text>
-                                    </View>
-                                    <View style={[styles.tagParent, styles.tagPosition]}>
-                                        <View style={[styles.tag10, styles.tagFlexBox]}>
-                                            <Text style={[styles.g3, styles.gTypo]}>🔥 Hits</Text>
-                                        </View>
-                                        <View style={[styles.tag2, styles.tagFlexBox]}>
-                                            <Text style={[styles.promo2, styles.gTypo]}>Promo</Text>
-                                        </View>
-                                    </View>
-                                </View>
-                                <View style={[styles.frameParent16, styles.parentLayout]}>
-                                    <View style={[styles.parent, styles.starsFlexBox]}>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>2k+</Text>
-                                        <Text style={[styles.vendidos, styles.vendidosTypo]}>vendido(s)</Text>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>{`| `}</Text>
-                                    <View style={[styles.starrating, styles.starsFlexBox]}>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                        <View style={styles.iconLayout}>
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                            <Image style={[styles.maskGroupIcon, styles.iconLayout]} resizeMode="cover" />
-                                        </View>
-                                    </View>
-                                    <Text style={[styles.vendidos, styles.vendidosTypo]}>4.6 (445)</Text>
-                                </View>
-                                <View style={[styles.frameParent10, styles.frameFlexBox]}>
-                                    <View style={styles.rParent}>
-                                        <Text style={[styles.r, styles.textTypo]}>R$</Text>
-                                        <View style={styles.rParent}>
-                                            <Text style={[styles.text16, styles.textLayout]}>3.500</Text>
-                                        </View>
-                                    </View>
-                                    <View style={styles.tag3}>
-                                        <Text style={[styles.text6, styles.gTypo]}>-10%</Text>
-                                    </View>
-                                </View>
-                            </View>
-                        </View>
+                        <ProductCardMainRecommendations
+                            productCardType="promo"
+                            title="Ração Úmida Pedigree Sachê Carne ao Molho para Cães Adultos de Raças Pequenas 100 g"
+                            imageUrl={require("@/assets/mock/productImages/perdigreeAdulto.jpg")}
+                            tags={[
+                                {
+                                    label: "100 G",
+                                    variant: "default",
+                                },
+                                {
+                                    label: "Promo",
+                                    variant: "promo",
+                                },
+                            ]}
+                            soldCount={130}
+                            rating={3.9}
+                            price={3.60}
+                            discountPercentage={8}
+                        />
                     </View>
                 </ScrollView>
             </ScrollView>
