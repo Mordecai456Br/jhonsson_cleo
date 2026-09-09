@@ -11,40 +11,51 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
-import { Mail, Lock } from "lucide-react-native";
+import { User, Mail, Lock } from "lucide-react-native";
 import { AuthInput } from "../components/AuthInput";
-import { AuthButton } from "../components/propsAndButtons/AuthButton";
 import { colors, spacing } from "@/constants/theme";
-import { validateEmail, validatePassword } from "../utils/validation";
+import {
+  validateName,
+  validateEmail,
+  validatePassword,
+  validateConfirmPassword,
+} from "../utils/validation";
 
 interface FormErrors {
+  name?: string | null;
   email?: string | null;
   password?: string | null;
+  confirmPassword?: string | null;
 }
 
-export function LoginScreen() {
+export function RegisterScreen() {
   const router = useRouter();
+  const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
   const [loading, setLoading] = useState(false);
-  const [formError, setFormError] = useState<string | null>(null);
-
-  const navigateToHome = () => {
-    router.replace("/(tabs)/home");
-  };
+  const [success, setSuccess] = useState(false);
 
   const validate = (): boolean => {
+    const nameError = validateName(name);
     const emailError = validateEmail(email);
     const passwordError = validatePassword(password);
+    const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
 
-    setErrors({ email: emailError, password: passwordError });
+    setErrors({
+      name: nameError,
+      email: emailError,
+      password: passwordError,
+      confirmPassword: confirmPasswordError,
+    });
 
-    return !emailError && !passwordError;
+    return !nameError && !emailError && !passwordError && !confirmPasswordError;
   };
 
-  const handleLogin = () => {
-    setFormError(null);
+  const handleRegister = () => {
+    setSuccess(false);
 
     if (!validate()) {
       return;
@@ -52,11 +63,15 @@ export function LoginScreen() {
 
     setLoading(true);
 
-    // Simulação de chamada de autenticação
+    // Simulação de chamada de cadastro
     setTimeout(() => {
       setLoading(false);
-      console.log("Login attempt with:", email, password);
-      navigateToHome();
+      setSuccess(true);
+      console.log("Cadastro realizado:", { name, email, password });
+
+      setTimeout(() => {
+        router.replace("/login");
+      }, 1200);
     }, 900);
   };
 
@@ -70,10 +85,24 @@ export function LoginScreen() {
           contentContainerStyle={styles.scrollContent}
           keyboardShouldPersistTaps="handled"
         >
-          <Text style={styles.title}>Bem-vindo de volta</Text>
-          <Text style={styles.subtitle}>Entre na sua conta para continuar</Text>
+          <Text style={styles.title}>Crie sua conta</Text>
+          <Text style={styles.subtitle}>Preencha os dados para se cadastrar</Text>
 
           <View style={styles.form}>
+            <AuthInput
+              label="Nome"
+              icon={User}
+              placeholder="Digite seu nome completo"
+              autoCapitalize="words"
+              value={name}
+              onChangeText={(text) => {
+                setName(text);
+                if (errors.name) setErrors((prev) => ({ ...prev, name: null }));
+              }}
+              onBlur={() => setErrors((prev) => ({ ...prev, name: validateName(name) }))}
+              error={errors.name}
+            />
+
             <AuthInput
               label="Email"
               icon={Mail}
@@ -91,12 +120,18 @@ export function LoginScreen() {
             <AuthInput
               label="Senha"
               icon={Lock}
-              placeholder="Digite sua senha"
+              placeholder="Mínimo 6 caracteres, com letra e número"
               isPassword
               value={password}
               onChangeText={(text) => {
                 setPassword(text);
                 if (errors.password) setErrors((prev) => ({ ...prev, password: null }));
+                if (errors.confirmPassword && confirmPassword) {
+                  setErrors((prev) => ({
+                    ...prev,
+                    confirmPassword: validateConfirmPassword(text, confirmPassword),
+                  }));
+                }
               }}
               onBlur={() =>
                 setErrors((prev) => ({ ...prev, password: validatePassword(password) }))
@@ -104,52 +139,46 @@ export function LoginScreen() {
               error={errors.password}
             />
 
-            {formError ? <Text style={styles.formError}>{formError}</Text> : null}
+            <AuthInput
+              label="Confirmar senha"
+              icon={Lock}
+              placeholder="Repita sua senha"
+              isPassword
+              value={confirmPassword}
+              onChangeText={(text) => {
+                setConfirmPassword(text);
+                if (errors.confirmPassword) setErrors((prev) => ({ ...prev, confirmPassword: null }));
+              }}
+              onBlur={() =>
+                setErrors((prev) => ({
+                  ...prev,
+                  confirmPassword: validateConfirmPassword(password, confirmPassword),
+                }))
+              }
+              error={errors.confirmPassword}
+            />
+
+            {success ? (
+              <Text style={styles.successText}>Cadastro realizado com sucesso! Redirecionando...</Text>
+            ) : null}
 
             <TouchableOpacity
               style={[styles.primaryButton, loading && styles.buttonDisabled]}
-              onPress={handleLogin}
+              onPress={handleRegister}
               disabled={loading}
             >
               {loading ? (
                 <ActivityIndicator color="#fff" />
               ) : (
-                <Text style={styles.primaryButtonText}>Entrar</Text>
+                <Text style={styles.primaryButtonText}>Cadastrar</Text>
               )}
             </TouchableOpacity>
           </View>
 
-          <View style={styles.divider}>
-            <View style={styles.dividerLine} />
-            <Text style={styles.dividerText}>ou entre com</Text>
-            <View style={styles.dividerLine} />
-          </View>
-
-          <View style={styles.socialButtons}>
-            <AuthButton
-              provider="google"
-              onPress={() => {
-                console.log("Login Google");
-                navigateToHome();
-              }}
-            />
-            <AuthButton
-              provider="github"
-              onPress={() => {
-                console.log("Login Github");
-                navigateToHome();
-              }}
-            />
-          </View>
-
-          <TouchableOpacity onPress={navigateToHome}>
-            <Text style={styles.skipText}>Entrar sem conta</Text>
-          </TouchableOpacity>
-
           <View style={styles.footer}>
-            <Text style={styles.footerText}>Não tem uma conta? </Text>
-            <TouchableOpacity onPress={() => router.push("/register")}>
-              <Text style={styles.footerLink}>Cadastre-se</Text>
+            <Text style={styles.footerText}>Já tem uma conta? </Text>
+            <TouchableOpacity onPress={() => router.replace("/login")}>
+              <Text style={styles.footerLink}>Entrar</Text>
             </TouchableOpacity>
           </View>
         </ScrollView>
@@ -182,11 +211,12 @@ const styles = StyleSheet.create({
   form: {
     marginBottom: spacing[6],
   },
-  formError: {
-    color: colors.destructive,
+  successText: {
+    color: colors.success,
     fontSize: 13,
     marginBottom: spacing[3],
     textAlign: "center",
+    fontWeight: "600",
   },
   primaryButton: {
     backgroundColor: colors.accent,
@@ -203,31 +233,6 @@ const styles = StyleSheet.create({
     color: "#fff",
     fontSize: 16,
     fontWeight: "700",
-  },
-  divider: {
-    flexDirection: "row",
-    alignItems: "center",
-    marginBottom: spacing[5],
-  },
-  dividerLine: {
-    flex: 1,
-    height: 1,
-    backgroundColor: colors.border,
-  },
-  dividerText: {
-    marginHorizontal: spacing[3],
-    fontSize: 12,
-    color: colors.mutedForeground,
-  },
-  socialButtons: {
-    gap: spacing[2],
-    marginBottom: spacing[6],
-  },
-  skipText: {
-    textAlign: "center",
-    color: colors.mutedForeground,
-    fontSize: 13,
-    marginBottom: spacing[8],
   },
   footer: {
     flexDirection: "row",
