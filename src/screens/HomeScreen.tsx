@@ -2,6 +2,9 @@
 import * as React from "react";
 import {StyleSheet, View, Text, Image, ScrollView, ImageBackground} from "react-native";
 import ProductCardMainRecommendations from "@/src/components/productCards/ProductCardFeed";
+import {categories} from "@/constants/data";
+import Header from "@/src/components/header/Header";
+import CategoryBanner from "@/src/components/banner/CategoryBanner";
 
 const FeedDeProdutos = () => {
     const tagsArray: ProductTag[] = [
@@ -11,79 +14,63 @@ const FeedDeProdutos = () => {
 
     return (
         <View style={styles.feedDeProdutos}>
-            <View style={styles.frameParent}>
-                <View style={[styles.frameChild, styles.frameChildFlexBox]} />
-                <View style={styles.jhonssonCleoParent}>
-                    <Text style={styles.jhonssonCleo}>{`Jhonsson & Cleo`}</Text>
-                    <Image style={styles.geminiGeneratedImage59ijhv5Icon} resizeMode="cover" />
-                    <View style={styles.frameWrapper}>
-                        <View style={[styles.searchParent, styles.searchParentBorder]}>
-                            <Image style={styles.searchIcon} resizeMode="cover" />
-                            <Text style={[styles.oQueSeu, styles.raesTypo]}>O que seu pet precisa?</Text>
-                        </View>
-                    </View>
-                </View>
-                <ScrollView style={[styles.localizationParent, styles.feedLayout]} horizontal={true} contentContainerStyle={styles.frameContainer3Content}>
-                    <View style={[styles.localization, styles.localizationLayout]}>
-                        <Image style={styles.searchIcon} resizeMode="cover" />
-                        <Image style={styles.chevronDownIcon} resizeMode="cover" />
-                    </View>
-                    <View style={[styles.localization2, styles.localizationSpaceBlock1]}>
-                        <Text style={[styles.promo, styles.promoTypo]}>Promo</Text>
-                    </View>
-                    <View style={[styles.localization3, styles.localizationSpaceBlock1]}>
-                        <Text style={[styles.promo, styles.promoTypo]}>🔥 Hits</Text>
-                    </View>
-                    <View style={styles.localizationSpaceBlock}>
-                        <Text style={[styles.raes, styles.raesTypo]}>Rações</Text>
-                    </View>
-                    <View style={[styles.localization5, styles.localizationSpaceBlock]}>
-                        <Text style={[styles.raes, styles.raesTypo]}>Sachês</Text>
-                    </View>
-                    <View style={[styles.localization5, styles.localizationSpaceBlock]}>
-                        <Text style={[styles.raes, styles.raesTypo]}>Acessórios</Text>
-                    </View>
-                    <View style={[styles.localization7, styles.localizationLayout]}>
-                        <Text style={[styles.raes, styles.raesTypo]}>Brinquedos</Text>
-                    </View>
-                </ScrollView>
-            </View>
+            <Header
+                logo={require("@/assets/images/searchBarAndHeaderDogIcon.png")}
+                searchIcon={require("@/assets/icons/searchIcon.png")}
+                locationIcon={require("@/assets/icons/locationIcon.png")}
+                chevronIcon={require("@/assets/icons/chevron-down.png")}
+                categories={categories}
+                onSearchChange={(text) => {
+                    console.log(text);
+                }}
+                onCategoryPress={(key) => {
+                    console.log("Categoria:", key);
+                }}
+            />
             <ScrollView style={[styles.feed, styles.feedLayout]} contentContainerStyle={styles.feedContainerContent}>
                 <View style={[styles.frameGroup, styles.frameGroupSpaceBlock]}>
-                    <ImageBackground style={[styles.cachorrosAudoramEssesParent, styles.frameSpaceBlock]} resizeMode="cover">
-                        <Text style={[styles.cachorrosAudoramEsses, styles.cachorrosAudoramEssesTypo]}>cachorros audoram esses:</Text>
-                        <View style={styles.frameContainer}>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Rações</Text>
-                            </View>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Higiene e {'\n'}Limpeza</Text>
-                            </View>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Acessórios</Text>
-                            </View>
-                        </View>
-                    </ImageBackground>
-                    <ImageBackground style={[styles.cachorrosAudoramEssesParent, styles.frameSpaceBlock]} resizeMode="cover">
-                        <Text style={[styles.miauravilhososParaGatos, styles.cachorrosAudoramEssesTypo]}>miauravilhosos para gatos:</Text>
-                        <View style={styles.frameContainer}>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Rações</Text>
-                            </View>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Caixa de areia e {'\n'}Limpeza</Text>
-                            </View>
-                            <View style={[styles.frameView, styles.starsSpaceBlock]}>
-                                <Image style={styles.frameItem} resizeMode="cover" />
-                                <Text style={[styles.raes2, styles.raes2Clr]}>Acessórios</Text>
-                            </View>
-                        </View>
-                    </ImageBackground>
+                    <CategoryBanner
+                        backgroundImage={require("@/assets/images/catBannerBackground2.png")}
+                        title="miauravilhosos para gatos:"
+                        categories={[
+                            {
+                                id: "racoes",
+                                image: require("@/assets/icons/catFoodIcon.png"),
+                                label: "Rações",
+                            },
+                            {
+                                id: "limpeza",
+                                image: require("@/assets/icons/petHygieneIcon.png"),
+                                label: "Caixa de areia e Limpeza",
+                            },
+                            {
+                                id: "acessorios",
+                                image: require("@/assets/icons/petHygieneIcon.png"),
+                                label: "Acessórios",
+                            },
+                        ]}
+                    />
+                    <CategoryBanner
+                        backgroundImage={require("@/assets/images/dogBannerBackground2.png")}
+                        title="cachorros audoram esses:"
+                        categories={[
+                            {
+                                id: "racoes",
+                                image: require("@/assets/icons/dogFoodIcon.png"),
+                                label: "Rações",
+                            },
+                            {
+                                id: "limpeza",
+                                image: require("@/assets/icons/petHygieneIcon.png"),
+                                label: "Caixa de areia e Limpeza",
+                            },
+                            {
+                                id: "acessorios",
+                                image: require("@/assets/icons/petHygieneIcon.png"),
+                                label: "Acessórios",
+                            },
+                        ]}
+                    />
                     <Text style={[styles.cachorrosAudoramEsses, styles.cachorrosAudoramEssesTypo]}>Recomendado</Text>
                 </View>
                 <ScrollView style={[styles.products, styles.feedLayout]} contentContainerStyle={styles.productsContainerContent}>

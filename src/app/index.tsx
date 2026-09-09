@@ -11,7 +11,7 @@ export default function App() {
   useEffect(() => {
     const timer = setTimeout(() => {
       router.replace("/login");
-    }, 5000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, [router]);
