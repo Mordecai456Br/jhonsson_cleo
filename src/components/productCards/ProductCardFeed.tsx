@@ -108,6 +108,11 @@ const ProductCardMainRecommendations = ({
                             </Text>
                         </View>
                     )}
+                    <View className="flex-row items-center justify-center overflow-hidden rounded-lg bg-[#f5d6ff] px-2 py-1">
+                        <Text className="text-[10px] font-semibold text-[#730099]">
+                            Adicionar ao carrinho
+                        </Text>
+                    </View>
                 </View>
             </View>
         </View>

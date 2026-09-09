@@ -3,8 +3,9 @@ import * as React from "react";
 import {StyleSheet, View, Text, Image, ScrollView, ImageBackground} from "react-native";
 import ProductCardMainRecommendations from "@/src/components/productCards/ProductCardFeed";
 import {categories} from "@/constants/data";
-import Header from "@/src/components/header/Header";
+import HeaderPetshop from "@/src/components/header/HeaderPetshop";
 import CategoryBanner from "@/src/components/banner/CategoryBanner";
+import {Header} from "@/src/components/Header";
 
 const FeedDeProdutos = () => {
     const tagsArray: ProductTag[] = [
@@ -14,7 +15,7 @@ const FeedDeProdutos = () => {
 
     return (
         <View style={styles.feedDeProdutos}>
-            <Header
+            <HeaderPetshop
                 logo={require("@/assets/images/searchBarAndHeaderDogIcon.png")}
                 searchIcon={require("@/assets/icons/searchIcon.png")}
                 locationIcon={require("@/assets/icons/locationIcon.png")}
