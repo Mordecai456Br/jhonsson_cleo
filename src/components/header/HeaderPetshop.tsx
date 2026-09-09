@@ -25,7 +25,7 @@ export interface HeaderProps {
     onCategoryPress?: (key: string) => void;
 }
 
-const Header = ({
+const HeaderPetshop = ({
                     logo,
                     brandName = "Jhonsson & Cleo",
                     searchIcon,
@@ -95,4 +95,4 @@ const Header = ({
     );
 };
 
-export default Header;
+export default HeaderPetshop;
