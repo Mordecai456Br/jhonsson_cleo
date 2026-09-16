@@ -13,19 +13,6 @@ export default function cart() {
     return (
         <SafeAreaView className="flex-1 bg-background">
             <View className="flex-1">
-            <HeaderPetshop
-                logo={require("@/assets/images/searchBarAndHeaderDogIcon.png")}
-                searchIcon={require("@/assets/icons/searchIcon.png")}
-                locationIcon={require("@/assets/icons/locationIcon.png")}
-                chevronIcon={require("@/assets/icons/chevron-down.png")}
-                categories={categories}
-                onSearchChange={(text) => {
-                    console.log(text);
-                }}
-                onCategoryPress={(key) => {
-                    console.log("Categoria:", key);
-                }}
-            />
             <Cart
                 products={[
                     {

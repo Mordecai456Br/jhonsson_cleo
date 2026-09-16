@@ -1,6 +1,7 @@
 
 import * as React from "react";
 import { Pressable, Text, View } from "react-native";
+import {router} from "expo-router";
 
 export interface CartSummaryProps {
     total: number;
@@ -43,7 +44,15 @@ const CartSummary = ({
             {/* Finalizar compra */}
             <Pressable
                 disabled={selectedCount === 0}
-                onPress={onCheckout}
+
+                    onPress={() =>
+                    router.push({
+                    pathname: "/purchase/purchaseConfirmation",
+                    params: {
+
+                    quantity: selectedCount.toString(),
+                },})
+                }
                 className={`h-11 w-full items-center justify-center rounded-lg ${
     selectedCount > 0
         ? "bg-[#730099]"
