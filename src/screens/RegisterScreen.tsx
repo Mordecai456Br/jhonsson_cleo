@@ -70,7 +70,7 @@ export function RegisterScreen() {
       console.log("Cadastro realizado:", { name, email, password });
 
       setTimeout(() => {
-        router.replace("/login");
+        router.replace("/(tabs)/home");
       }, 1200);
     }, 900);
   };
@@ -177,7 +177,7 @@ export function RegisterScreen() {
 
           <View style={styles.footer}>
             <Text style={styles.footerText}>Já tem uma conta? </Text>
-            <TouchableOpacity onPress={() => router.replace("/login")}>
+            <TouchableOpacity onPress={() => router.replace("/(tabs)/home")}>
               <Text style={styles.footerLink}>Entrar</Text>
             </TouchableOpacity>
           </View>
