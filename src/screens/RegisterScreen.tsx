@@ -11,7 +11,8 @@ import {
 } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
 import { useRouter } from "expo-router";
-import { User, Mail, Lock } from "lucide-react-native";
+import { User, Mail, Lock, CreditCard } from "lucide-react-native"; 
+
 import { AuthInput } from "../components/AuthInput";
 import { colors, spacing } from "@/constants/theme";
 import {
@@ -19,11 +20,14 @@ import {
   validateEmail,
   validatePassword,
   validateConfirmPassword,
+  validateCpf, // <--- Importado a validação de CPF
+  formatCpf,   // <--- Importado a máscara de CPF (opcional)
 } from "../utils/validation";
 
 interface FormErrors {
   name?: string | null;
   email?: string | null;
+  cpf?: string | null; // <--- Adicionado erro de CPF
   password?: string | null;
   confirmPassword?: string | null;
 }
@@ -32,6 +36,7 @@ export function RegisterScreen() {
   const router = useRouter();
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
+  const [cpf, setCpf] = useState(""); // <--- Estado do CPF
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [errors, setErrors] = useState<FormErrors>({});
@@ -41,17 +46,19 @@ export function RegisterScreen() {
   const validate = (): boolean => {
     const nameError = validateName(name);
     const emailError = validateEmail(email);
+    const cpfError = validateCpf(cpf); // <--- Validação do CPF
     const passwordError = validatePassword(password);
     const confirmPasswordError = validateConfirmPassword(password, confirmPassword);
 
     setErrors({
       name: nameError,
       email: emailError,
+      cpf: cpfError, // <--- Atribuindo erro do CPF
       password: passwordError,
       confirmPassword: confirmPasswordError,
     });
 
-    return !nameError && !emailError && !passwordError && !confirmPasswordError;
+    return !nameError && !emailError && !cpfError && !passwordError && !confirmPasswordError;
   };
 
   const handleRegister = () => {
@@ -67,7 +74,7 @@ export function RegisterScreen() {
     setTimeout(() => {
       setLoading(false);
       setSuccess(true);
-      console.log("Cadastro realizado:", { name, email, password });
+      console.log("Cadastro realizado:", { name, email, cpf, password });
 
       setTimeout(() => {
         router.replace("/(tabs)/home");
@@ -115,6 +122,23 @@ export function RegisterScreen() {
               }}
               onBlur={() => setErrors((prev) => ({ ...prev, email: validateEmail(email) }))}
               error={errors.email}
+            />
+
+            {/* CAMPO DE CPF ADICIONADO */}
+            <AuthInput
+              label="CPF"
+              icon={CreditCard}
+              placeholder="000.000.000-00"
+              keyboardType="numeric"
+              maxLength={14}
+              value={cpf}
+              onChangeText={(text) => {
+                const formatted = formatCpf(text); // Aplica a máscara enquanto digita
+                setCpf(formatted);
+                if (errors.cpf) setErrors((prev) => ({ ...prev, cpf: null }));
+              }}
+              onBlur={() => setErrors((prev) => ({ ...prev, cpf: validateCpf(cpf) }))}
+              error={errors.cpf}
             />
 
             <AuthInput
