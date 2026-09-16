@@ -1,42 +1,34 @@
 import { Tabs } from "expo-router";
 import { Image, Text, View } from "react-native";
 import { useSafeAreaInsets } from "react-native-safe-area-context";
-
 import { tabs } from "@/constants/data";
 import { colors, components } from "@/constants/theme";
 
 const tabBar = components.tabBar;
 
 const TabIcon = ({
-    focused,
-    icon
-}: TabIconProps) => {
+                     focused,
+                     icon,
+                 }: TabIconProps) => {
     return (
-        <View className="h-full w-full items-center justify-center">
+        <View className="w-full items-center justify-center">
             {/*
-             * O conteúdo ocupa toda a largura disponível da tab.
-             * O item da tab é quem define essa largura.
+             * O container agora usa apenas o espaço necessário
+             * e o alinhamento vertical é controlado pelo próprio
+             * container da tab.
              */}
-            <View className="h-full w-full items-center justify-center">
-                {/* Ícone */}
-                <Image
-                    source={icon}
-                    resizeMode="contain"
-                    className="h-[30px] w-[30px]"
-                />
+            <Image
+                source={icon}
+                resizeMode="contain"
+                className="h-[30px] w-[30px]"
+            />
 
-                {/* Nome da tab
-                <Text className="mt-0.5 text-center text-[10px] font-normal leading-[15px] text-black">
-                    {title}
-                </Text>
-                */}
-                {/* Indicador da tab ativa */}
-                <View
-                    className={`mt-1 h-[2px] w-full rounded ${
-    focused ? "bg-[#434343]" : "bg-transparent"
-}`}
-                />
-            </View>
+            {/* Indicador da tab ativa */}
+            <View
+                className={`mt-1 h-[2px] w-full rounded ${
+                    focused ? "bg-[#434343]" : "bg-transparent"
+                }`}
+            />
         </View>
     );
 };
@@ -66,13 +58,19 @@ const TabLayout = () => {
                     borderTopWidth: 0,
                     elevation: 0,
                     shadowOpacity: 0,
+
+                    alignItems: "center",
                 },
 
                 tabBarItemStyle: {
                     flex: 1,
                     width: "100%",
                     paddingVertical: 0,
-                }
+
+                    height: "100%",
+                    alignItems: "center",
+                    justifyContent: "center",
+                },
             }}
         >
             {tabs.map((tab) => (

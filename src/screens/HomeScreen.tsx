@@ -119,27 +119,6 @@ const FeedDeProdutos = () => {
                     </View>
                 </ScrollView>
             </ScrollView>
-            <View style={[styles.feedDeProdutosInner, styles.searchParentBorder1]}>
-                <View style={[styles.minhaContaParent, styles.frameChildFlexBox]}>
-                    <View style={styles.minhaConta}>
-                        <Image style={styles.homePageIcon} resizeMode="cover" />
-                        <Text style={[styles.inicio, styles.gTypo]}>Inicio</Text>
-                    </View>
-                    <View style={styles.minhaConta}>
-                        <Image style={styles.homePageIcon} resizeMode="cover" />
-                        <Text style={[styles.inicio, styles.gTypo]}>Pesquisar</Text>
-                    </View>
-                    <Image style={styles.ellipseIcon} resizeMode="cover" />
-                    <View style={styles.minhaConta}>
-                        <Image style={styles.homePageIcon} resizeMode="cover" />
-                        <Text style={[styles.inicio, styles.gTypo]}>Carrinho</Text>
-                    </View>
-                    <View style={styles.minhaConta}>
-                        <Image style={styles.homePageIcon} resizeMode="cover" />
-                        <Text style={[styles.inicio, styles.gTypo]}>Minha Conta</Text>
-                    </View>
-                </View>
-            </View>
             <Image style={styles.feedDeProdutosChild} resizeMode="cover" />
         </View>);
 };

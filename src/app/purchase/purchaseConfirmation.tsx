@@ -45,7 +45,7 @@ const PurchaseConfirmation = () => {
                     <View style={styles.buttonContainer}>
                         <Pressable
                             style={styles.primaryButton}
-                            onPress={() => router.replace("/")}
+                            onPress={() => router.replace("/(tabs)/home")}
                         >
                             <Text style={styles.primaryButtonText}>
                                 Voltar ao início
