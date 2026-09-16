@@ -1,6 +1,7 @@
 import { Stack } from "expo-router";
 import '@/global.css'
 import {useFonts} from "expo-font";
+import FloatingAI from "@/src/components/FloatingAI";
 
 export default function RootLayout() {
   const [ fontLoaded ] = useFonts({
@@ -15,5 +16,10 @@ export default function RootLayout() {
 
   })
 
-  return <Stack screenOptions={{headerShown: false}} />;
+  return (
+      <>
+      <Stack screenOptions={{headerShown: false}} />
+  <FloatingAI/>
+        </>
+        );
 }
