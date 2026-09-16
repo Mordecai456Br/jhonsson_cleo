@@ -12,7 +12,7 @@ import Cart from "@/src/components/productCards/Cart";
 export default function cart() {
     return (
         <SafeAreaView className="flex-1 bg-background">
-            <View className="flex-1 px-5">
+            <View className="flex-1">
             <HeaderPetshop
                 logo={require("@/assets/images/searchBarAndHeaderDogIcon.png")}
                 searchIcon={require("@/assets/icons/searchIcon.png")}

@@ -96,19 +96,24 @@ const ProductCardMainRecommendations = ({
                 </View>
 
                 {/* Preço e Desconto */}
-                <View className="mt-1 w-full flex-row items-center flex-wrap gap-1">
-                    <Text className="text-xs font-medium text-black">
-                        {formattedPrice}
-                    </Text>
+                <View className="mt-1 w-full">
+                    {/* Preço e desconto ficam na mesma linha */}
+                    <View className="flex-row items-center gap-1">
+                        <Text className="text-xs font-medium text-black">
+                            {formattedPrice}
+                        </Text>
 
-                    {discountPercentage && (
-                        <View className="flex-row items-center justify-center overflow-hidden rounded-lg bg-[#fecdd3] px-1 py-0.5">
-                            <Text className="text-[10px] font-normal text-[#fc3850]">
-                                -{discountPercentage}% off
-                            </Text>
-                        </View>
-                    )}
-                    <View className="flex-row items-center justify-center overflow-hidden rounded-lg bg-[#f5d6ff] px-2 py-1">
+                        {discountPercentage && (
+                            <View className="flex-row items-center justify-center overflow-hidden rounded-lg bg-[#fecdd3] px-1 py-0.5">
+                                <Text className="text-[10px] font-normal text-[#fc3850]">
+                                    -{discountPercentage}% off
+                                </Text>
+                            </View>
+                        )}
+                    </View>
+
+                    {/* O botão fica em uma nova linha e ocupa 100% da largura */}
+                    <View className="mt-2 w-full flex-row items-center justify-center overflow-hidden rounded-lg bg-[#f5d6ff] px-2 py-1">
                         <Text className="text-[10px] font-semibold text-[#730099]">
                             Adicionar ao carrinho
                         </Text>
